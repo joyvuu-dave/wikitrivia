@@ -11,7 +11,7 @@ export function getRandomItem(deck: Item[], played: Item[]): Item {
     periods[Math.floor(Math.random() * periods.length)];
   const avoidPeople = Math.random() > 0.5;
   let distance = 5;
-  if (played.length < 11) { 
+  if (played.length < 11) {
     distance = 110 - 10 * played.length;
   } else if (played.length > 40) {
     distance = 1;
@@ -54,7 +54,10 @@ export function checkCorrect(
     return i.id === item.id;
   });
 
-  if (index !== correctIndex && item.year !== [...played, item][correctIndex].year) {
+  if (
+    index !== correctIndex &&
+    item.year !== [...played, item][correctIndex].year
+  ) {
     return { correct: false, delta: correctIndex - index };
   }
 

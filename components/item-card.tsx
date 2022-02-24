@@ -35,7 +35,11 @@ const datePropIdMap: { [datePropId: string]: string } = {
 };
 
 function capitalize(str: string): string {
-  return str.charAt(0).toUpperCase() + str.slice(1);
+  if (typeof str === "string" || str instanceof String) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  } else {
+    return str;
+  }
 }
 
 export default function ItemCard(props: Props) {
